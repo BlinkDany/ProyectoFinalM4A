@@ -38,6 +38,7 @@ public class CategoriasServiceImpl implements ICategoriaService {
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		categoriaDao.deleteById(id);
