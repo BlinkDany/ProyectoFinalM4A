@@ -2,9 +2,12 @@ package com.examen.demo.models.Entity;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "persona")
@@ -17,6 +20,9 @@ public class Persona {
 	private String correo;
 	private String direccion;
 	private String telf;
+	
+	@Column(name="fecha_nac")
+	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
 
 	public String getCedula() {
