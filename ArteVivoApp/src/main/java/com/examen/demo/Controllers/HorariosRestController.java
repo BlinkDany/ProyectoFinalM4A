@@ -39,7 +39,7 @@ public class HorariosRestController {
 	}
 	
 	//BUSCAR
-	@GetMapping("/horarios/{codigoHorarios{")
+	@GetMapping("/horarios/{codigoHorarios}")
 	public Horarios buscar(@PathVariable Long codigoHorarios) {
 		
 		return horariosService.BuscarPorId(codigoHorarios);
