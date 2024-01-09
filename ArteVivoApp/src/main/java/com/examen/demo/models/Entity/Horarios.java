@@ -4,11 +4,8 @@ import java.io.Serializable;
 import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
-<<<<<<< Updated upstream
-=======
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
->>>>>>> Stashed changes
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -20,14 +17,10 @@ public class Horarios implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-<<<<<<< Updated upstream
-	
-	@Id
-=======
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
->>>>>>> Stashed changes
+
 	private Long codigoHorarios;
 	private LocalTime hora_Inicio;
 	private LocalTime hora_fin;
