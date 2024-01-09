@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,7 +15,8 @@ public class Horarios implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	
+	@Id
 	private Long codigoHorarios;
 	private LocalTime hora_Inicio;
 	private LocalTime hora_fin;
