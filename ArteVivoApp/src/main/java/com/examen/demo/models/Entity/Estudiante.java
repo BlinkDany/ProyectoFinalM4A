@@ -3,6 +3,7 @@ package com.examen.demo.models.Entity;
 import java.io.Serializable;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -29,7 +30,7 @@ public class Estudiante implements Serializable{
 	@Column(nullable = false)
 	private String cedula_estudiante_fk;
 
-	@OneToMany(fetch = FetchType.LAZY)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigoEstudiante")
 	private List<EstudianteAsignatura> listaEstudianteAsignList;
 

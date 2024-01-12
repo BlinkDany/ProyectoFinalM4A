@@ -2,11 +2,18 @@ package com.examen.demo.models.Entity;
 
 import java.io.Serializable;
 import java.time.LocalTime;
+import java.util.List;
 
+import com.fasterxml.jackson.core.sym.Name;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +32,10 @@ public class Horarios implements Serializable {
 	private LocalTime hora_Inicio;
 	private LocalTime hora_fin;
 
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigoHorarios")
+	private List<Asignatura> listaAsignaturas;
+	
 	public Long getCodigoHorarios() {
 		return codigoHorarios;
 	}

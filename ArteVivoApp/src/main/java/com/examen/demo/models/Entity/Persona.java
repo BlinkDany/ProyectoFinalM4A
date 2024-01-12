@@ -1,10 +1,14 @@
 package com.examen.demo.models.Entity;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -25,6 +29,14 @@ public class Persona {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
 
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cedula_profesor_fk")
+	private List<Profesor> listaProfesors;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cedula_estudiante_fk")
+	private List<Estudiante> listEstudiantes;
+	
 	public String getCedula() {
 		return cedula;
 	}
