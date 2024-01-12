@@ -32,6 +32,10 @@ public class Estudiante implements Serializable{
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "codigoEstudiante")
 	private List<EstudianteAsignatura> listaEstudianteAsignList;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cod_estudiante_fk")
+	private List<Matricula> listaMatriculaAsignList;
 
 	public Long getCod_estudiante_pk() {
 		return cod_estudiante_pk;
