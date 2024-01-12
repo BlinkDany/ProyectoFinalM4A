@@ -33,7 +33,9 @@ public class Matricula implements Serializable {
 	@Column(nullable = false)
 	private Long cod_estudiante_fk;
 	
-
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "codigoMatriculas")
+	private List<Asignatura> listAsignaturas;
 	
 	public Long getCod_matricula_pk() {
 		return cod_matricula_pk;
