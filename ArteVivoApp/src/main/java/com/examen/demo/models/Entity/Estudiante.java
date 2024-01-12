@@ -1,12 +1,16 @@
 package com.examen.demo.models.Entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,7 +29,9 @@ public class Estudiante implements Serializable{
 	@Column(nullable = false)
 	private String cedula_estudiante_fk;
 
-	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "codigoEstudiante")
+	private List<EstudianteAsignatura> listaEstudianteAsignList;
 
 	public Long getCod_estudiante_pk() {
 		return cod_estudiante_pk;
