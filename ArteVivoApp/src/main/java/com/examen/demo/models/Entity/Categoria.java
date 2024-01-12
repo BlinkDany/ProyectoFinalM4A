@@ -1,11 +1,16 @@
 package com.examen.demo.models.Entity;
 
 import java.io.Serializable;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,6 +24,11 @@ public class Categoria implements Serializable  {
 	private Long codigoCategoria;
 	private String descripcion;
 	private String nombre;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigoCategorias")
+	private List<Asignatura> asignatura;
+	
 	
 	public Long getCodigoCategoria() {
 		return codigoCategoria;
