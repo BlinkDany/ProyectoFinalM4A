@@ -19,22 +19,23 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name="notas")
-public class Notas implements Serializable{
+@Table(name="tareas")
+public class Tareas implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigoNotas;
+	private Long codigoTareas;
 	private String observaciones;
+	private String notas;
 	
 	@Column(name = "fecharegistro")
 	@Temporal(TemporalType.DATE)
 	private Date fecharegistro;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "codigoNotas")
+	@JoinColumn(name = "codigoTareas")
 	private List<Asignatura> asignatura;
 	
     @PrePersist
@@ -42,13 +43,26 @@ public class Notas implements Serializable{
     	fecharegistro = new Date();
 	}
 
-	public Long getCodigoNotas() {
-		return codigoNotas;
+
+	public Long getCodigoTareas() {
+		return codigoTareas;
 	}
 
-	public void setCodigoNotas(Long codigoNotas) {
-		this.codigoNotas = codigoNotas;
+
+	public String getNotas() {
+		return notas;
 	}
+
+
+	public void setNotas(String notas) {
+		this.notas = notas;
+	}
+
+
+	public void setCodigoTareas(Long codigoTareas) {
+		this.codigoTareas = codigoTareas;
+	}
+
 
 	public String getObservaciones() {
 		return observaciones;

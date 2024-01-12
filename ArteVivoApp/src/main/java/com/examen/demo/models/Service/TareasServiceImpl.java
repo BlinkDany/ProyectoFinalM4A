@@ -6,41 +6,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.examen.demo.models.Dao.INotasDao;
-import com.examen.demo.models.Entity.Notas;
+import com.examen.demo.models.Dao.ITareasDao;
+import com.examen.demo.models.Entity.Tareas;
 
 @Service
-public class NotasServiceImpl implements INotasService{
+public class TareasServiceImpl implements ITareasService{
 
 	
 	@Autowired
-	private INotasDao NotasDao;
+	private ITareasDao TareaDao;
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Notas> findAll() {
-		return (List<Notas>) NotasDao.findAll();
+	public List<Tareas> findAll() {
+		return (List<Tareas>) TareaDao.findAll();
 	}
 
 	@Override
 	@Transactional
-	public Notas save(Notas notas) {
+	public Tareas save(Tareas notas) {
 		// TODO Auto-generated method stub
-		return NotasDao.save(notas);
+		return TareaDao.save(notas);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
-	public Notas findById(Long id) {
+	public Tareas findById(Long id) {
 		// TODO Auto-generated method stub
-		return NotasDao.findById(id).orElse(null);
+		return TareaDao.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
-		NotasDao.deleteById(id);
+		TareaDao.deleteById(id);
 		
 	}
 

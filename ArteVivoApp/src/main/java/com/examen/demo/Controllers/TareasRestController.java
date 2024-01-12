@@ -15,47 +15,47 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.examen.demo.models.Entity.Notas;
-import com.examen.demo.models.Service.INotasService;
+import com.examen.demo.models.Entity.Tareas;
+import com.examen.demo.models.Service.ITareasService;
 
 @CrossOrigin(origins = { "http://localhost:4200" })
 @RestController
 @RequestMapping("/api")
-public class NotasRestController {
+public class TareasRestController {
 
 	@Autowired
-	private INotasService notasService;
+	private ITareasService tareasService;
 
-	@GetMapping("/notas")
-	public List<Notas> indext() {
-		return notasService.findAll();
+	@GetMapping("/tareas")
+	public List<Tareas> indext() {
+		return tareasService.findAll();
 
 	}
 	
-    @GetMapping("/notas/{id}")
-    public Notas show(@PathVariable Long id) {
-    	return notasService.findById(id);
+    @GetMapping("/tareas/{id}")
+    public Tareas show(@PathVariable Long id) {
+    	return tareasService.findById(id);
     }
     
-    @PostMapping("/notas")
+    @PostMapping("/tareas")
     @ResponseStatus(HttpStatus.CREATED)
-    public Notas create(@RequestBody Notas notas) {
-    	return notasService.save(notas);
+    public Tareas create(@RequestBody Tareas notas) {
+    	return tareasService.save(notas);
     }
     
-    @PutMapping("/notas/{id}")
+    @PutMapping("/tareas/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Notas update(@RequestBody Notas notas, @PathVariable Long id) {
-    	Notas notaactual = notasService.findById(id);
-    	notaactual.setObservaciones(notas.getObservaciones());
-    	notaactual.setFecharegistro(notas.getFecharegistro());
-    	return notasService.save(notaactual);
+    public Tareas update(@RequestBody Tareas tareas, @PathVariable Long id) {
+    	Tareas notaactual = tareasService.findById(id);
+    	notaactual.setObservaciones(tareas.getObservaciones());
+    	notaactual.setFecharegistro(tareas.getFecharegistro());
+    	return tareasService.save(notaactual);
     }
     
-    @DeleteMapping("/notas/{id}")
+    @DeleteMapping("/tareas/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
-    	notasService.delete(id);
+    	tareasService.delete(id);
     }
     
     

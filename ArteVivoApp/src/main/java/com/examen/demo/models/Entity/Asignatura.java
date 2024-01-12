@@ -43,7 +43,7 @@ public class Asignatura implements Serializable{
 	private Long codigoHorarios;
 	
 	@Column(nullable = false)
-	private Long codigoNotas;
+	private Long codigoTareas;
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "codigoAsignatura")
@@ -105,12 +105,14 @@ public class Asignatura implements Serializable{
 		this.codigoHorarios = codigoHorarios;
 	}
 
-	public Long getCodigoNotas() {
-		return codigoNotas;
+	public Long getCodigoTareas() {
+		return codigoTareas;
 	}
 
-	public void setCodigoNotas(Long codigoNotas) {
-		this.codigoNotas = codigoNotas;
+	public void setCodigoTareas(Long codigoTareas) {
+		this.codigoTareas = codigoTareas;
 	}
+
+
 
 }
