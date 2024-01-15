@@ -29,6 +29,7 @@ public class Matricula implements Serializable {
 
 	private Date fecha_ini;
 	private Date feche_fin;
+	private int cupo;
 	
 	@Column(nullable = false)
 	private Long cod_estudiante_fk;
@@ -40,6 +41,8 @@ public class Matricula implements Serializable {
 	public Long getCod_matricula_pk() {
 		return cod_matricula_pk;
 	}
+	
+	
 
 	public void setCod_matricula_pk(Long cod_matricula_pk) {
 		this.cod_matricula_pk = cod_matricula_pk;
@@ -72,5 +75,31 @@ public class Matricula implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+
+	public int getCupo() {
+		return cupo;
+	}
+
+
+
+	public void setCupo(int cupo) {
+		this.cupo = cupo;
+	}
+
+
+
+	public List<Asignatura> getListAsignaturas() {
+		return listAsignaturas;
+	}
+
+
+
+	public void setListAsignaturas(List<Asignatura> listAsignaturas) {
+		this.listAsignaturas = listAsignaturas;
+	}
+	
+	
 	
 }
