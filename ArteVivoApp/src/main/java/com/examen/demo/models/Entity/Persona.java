@@ -24,6 +24,7 @@ public class Persona {
 	private String correo;
 	private String direccion;
 	private String telf;
+	private String foto;
 	
 	@Column(name="fecha_nac")
 	@Temporal(TemporalType.DATE)
@@ -91,6 +92,30 @@ public class Persona {
 
 	public void setFecha_nac(Date fecha_nac) {
 		this.fecha_nac = fecha_nac;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
+
+	public List<Profesor> getListaProfesors() {
+		return listaProfesors;
+	}
+
+	public void setListaProfesors(List<Profesor> listaProfesors) {
+		this.listaProfesors = listaProfesors;
+	}
+
+	public List<Estudiante> getListEstudiantes() {
+		return listEstudiantes;
+	}
+
+	public void setListEstudiantes(List<Estudiante> listEstudiantes) {
+		this.listEstudiantes = listEstudiantes;
 	}
 
 }

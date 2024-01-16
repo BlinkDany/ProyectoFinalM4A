@@ -3,9 +3,6 @@ package com.examen.demo.models.Entity;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
-
-import com.fasterxml.jackson.core.sym.Name;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
