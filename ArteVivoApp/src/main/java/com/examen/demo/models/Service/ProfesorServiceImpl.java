@@ -29,16 +29,16 @@ public class ProfesorServiceImpl implements IProfesorService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Profesor findById(Long cod_profesor_pk) {
+	public Profesor findById(String cedula) {
 		// TODO Auto-generated method stub
-		return profesorDao.findById(cod_profesor_pk).orElse(null);
+		return profesorDao.findById(cedula).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public void delete(Long cod_profesor_pk) {
+	public void delete(String cedula) {
 		// TODO Auto-generated method stub
-		profesorDao.deleteById(cod_profesor_pk);
+		profesorDao.deleteById(cedula);
 	}
 
 }

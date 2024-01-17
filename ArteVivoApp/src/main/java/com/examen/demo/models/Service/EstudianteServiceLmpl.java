@@ -30,16 +30,16 @@ public class EstudianteServiceLmpl implements IEstudianteService{
 
 	@Override
 	@Transactional (readOnly = true)
-	public Estudiante findById(Long cod_estudiante_pk) {
+	public Estudiante findById(String cedula) {
 		// TODO Auto-generated method stub
-		return estudianteDao.findById(cod_estudiante_pk).orElse(null);
+		return estudianteDao.findById(cedula).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public void delete(Long cod_estudiante_pk) {
+	public void delete(String cedula) {
 		// TODO Auto-generated method stub
-		estudianteDao.deleteById(cod_estudiante_pk);
+		estudianteDao.deleteById(cedula);
 	}
 
 }

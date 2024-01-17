@@ -32,9 +32,9 @@ public class EstudianteRestController {
 	}
 
 	// busca x id
-	@GetMapping("/estudiantes/{cod_estudiante_pk}")
-	public Estudiante show(@PathVariable Long cod_estudiante_pk) {
-		return estudianteService.findById(cod_estudiante_pk);
+	@GetMapping("/estudiantes/{cedula}")
+	public Estudiante show(@PathVariable String cedula) {
+		return estudianteService.findById(cedula);
 	}
 
 	// guardar
@@ -46,11 +46,11 @@ public class EstudianteRestController {
 	}
 
 	// modificar
-	@PutMapping("/estudiantes/{cod_estudiante_pk}")
+	@PutMapping("/estudiantes/{cedula}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Estudiante update(@RequestBody Estudiante estudiante, @PathVariable Long cod_estudiante_pk) {
+	public Estudiante update(@RequestBody Estudiante estudiante, @PathVariable String cedula) {
 
-		Estudiante estuActual = estudianteService.findById(cod_estudiante_pk);
+		Estudiante estuActual = estudianteService.findById(cedula);
 
 		estuActual.setCedula_estudiante_fk(estudiante.getCedula_estudiante_fk());
 
@@ -58,10 +58,10 @@ public class EstudianteRestController {
 	}
 
 	// eliminar
-	@DeleteMapping("/clientes/{id}")
+	@DeleteMapping("/estudiantes/{cedula}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void delete(@PathVariable Long cod_estudiante_pk) {
-		estudianteService.delete(cod_estudiante_pk);
+	public void delete(@PathVariable String cedula) {
+		estudianteService.delete(cedula);
 	}
 
 }

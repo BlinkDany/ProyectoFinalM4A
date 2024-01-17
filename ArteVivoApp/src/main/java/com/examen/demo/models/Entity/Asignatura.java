@@ -32,7 +32,7 @@ public class Asignatura implements Serializable{
 	private Long codigoCategorias;
 	
 	@Column(nullable = false)
-	private Long codigoProfesores;
+	private Long ced_profesor_fk;
 	
 	@Column(nullable = false)
 	private Long codigoMatriculas;
@@ -79,12 +79,13 @@ public class Asignatura implements Serializable{
 		this.codigoCategorias = codigoCategorias;
 	}
 
-	public Long getCodigoProfesores() {
-		return codigoProfesores;
+	
+	public Long getCed_profesor_fk() {
+		return ced_profesor_fk;
 	}
 
-	public void setCodigoProfesores(Long codigoProfesores) {
-		this.codigoProfesores = codigoProfesores;
+	public void setCed_profesor_fk(Long ced_profesor_fk) {
+		this.ced_profesor_fk = ced_profesor_fk;
 	}
 
 	public Long getCodigoMatriculas() {

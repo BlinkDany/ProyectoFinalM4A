@@ -10,7 +10,7 @@ public interface IProfesorService {
 
 	public Profesor save(Profesor profesor);
 
-	public Profesor findById(Long cod_profesor_pk);
+	public Profesor findById(String cedula);
 
-	public void delete(Long cod_profesor_pk);
+	public void delete(String cedula);
 }

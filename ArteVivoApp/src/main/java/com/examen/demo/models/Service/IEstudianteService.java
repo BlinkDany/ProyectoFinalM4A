@@ -10,8 +10,8 @@ public interface IEstudianteService {
 	
 	public Estudiante save(Estudiante estudiante);
 	
-	public Estudiante findById(Long cod_estudiante_pk);
+	public Estudiante findById(String cedula);
 	
-	public void delete(Long cod_estudiante_pk);
+	public void delete(String cedula);
 	
 }

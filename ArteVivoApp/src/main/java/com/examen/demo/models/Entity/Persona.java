@@ -33,10 +33,6 @@ public class Persona {
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cedula_profesor_fk")
-	private List<Profesor> listaProfesors;
-
 	
 	public String getCedula() {
 		return cedula;
@@ -102,13 +98,6 @@ public class Persona {
 		this.foto = foto;
 	}
 
-	public List<Profesor> getListaProfesors() {
-		return listaProfesors;
-	}
-
-	public void setListaProfesors(List<Profesor> listaProfesors) {
-		this.listaProfesors = listaProfesors;
-	}
 
 
 
