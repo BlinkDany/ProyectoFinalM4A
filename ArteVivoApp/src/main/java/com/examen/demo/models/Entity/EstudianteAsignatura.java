@@ -20,7 +20,7 @@ public class EstudianteAsignatura implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigoEstAsig;
-	private Long codigoEstudiante;
+	private String ced_estudiante_fk;
 	private Long codigoAsignatura;
 	private double calificacion;
 	private String estado;
@@ -34,12 +34,13 @@ public class EstudianteAsignatura implements Serializable{
 		this.codigoEstAsig = codigoEstAsig;
 	}
 
-	public Long getCodigoEstudiante() {
-		return codigoEstudiante;
+
+	public String getCed_estudiante_fk() {
+		return ced_estudiante_fk;
 	}
 
-	public void setCodigoEstudiante(Long codigoEstudiante) {
-		this.codigoEstudiante = codigoEstudiante;
+	public void setCed_estudiante_fk(String ced_estudiante_fk) {
+		this.ced_estudiante_fk = ced_estudiante_fk;
 	}
 
 	public Long getCodigoAsignatura() {

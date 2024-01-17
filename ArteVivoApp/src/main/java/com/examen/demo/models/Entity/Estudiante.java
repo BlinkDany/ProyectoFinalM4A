@@ -16,37 +16,22 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="estudiantes")
-public class Estudiante implements Serializable{
+public class Estudiante extends Persona{
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long cod_estudiante_pk;
 	
 	@Column(nullable = false)
 	private String cedula_estudiante_fk;
 
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "codigoEstudiante")
+	@JoinColumn(name = "ced_estudiante_fk")
 	private List<EstudianteAsignatura> listaEstudianteAsignList;
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cod_estudiante_fk")
+	@JoinColumn(name = "ced_estudiante_fk")
 	private List<Matricula> listaMatriculaAsignList;
 
-	public Long getCod_estudiante_pk() {
-		return cod_estudiante_pk;
-	}
-
-
-	public void setCod_estudiante_pk(Long cod_estudiante_pk) {
-		this.cod_estudiante_pk = cod_estudiante_pk;
-	}
-
+	
 
 	public String getCedula_estudiante_fk() {
 		return cedula_estudiante_fk;
@@ -58,11 +43,5 @@ public class Estudiante implements Serializable{
 		this.cedula_estudiante_fk = cedula_estudiante_fk;
 	}
 
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 
 }

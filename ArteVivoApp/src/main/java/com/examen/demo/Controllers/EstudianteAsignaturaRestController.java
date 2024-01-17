@@ -54,7 +54,7 @@ public class EstudianteAsignaturaRestController {
 		estudianteAsignatura2.setAsistencias(estudianteAsignatura.getAsistencias());
 		estudianteAsignatura2.setCalificacion(estudianteAsignatura.getCalificacion());
 		estudianteAsignatura2.setCodigoAsignatura(estudianteAsignatura.getCodigoAsignatura());
-		estudianteAsignatura2.setCodigoEstudiante(estudianteAsignatura.getCodigoEstudiante());
+		estudianteAsignatura2.setCed_estudiante_fk(estudianteAsignatura.getCed_estudiante_fk());
 		estudianteAsignatura2.setEstado(estudianteAsignatura.getEstado());
 		
 		return eAsignaturaService.save(estudianteAsignatura2);

@@ -32,7 +32,7 @@ public class Matricula implements Serializable {
 	private int cupo;
 	
 	@Column(nullable = false)
-	private Long cod_estudiante_fk;
+	private String ced_estudiante_fk;
 	
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "codigoMatriculas")
@@ -64,13 +64,17 @@ public class Matricula implements Serializable {
 		this.feche_fin = feche_fin;
 	}
 
-	public Long getCod_estudiante_fk() {
-		return cod_estudiante_fk;
+	public String getCed_estudiante_fk() {
+		return ced_estudiante_fk;
 	}
 
-	public void setCod_estudiante_fk(Long cod_estudiante_fk) {
-		this.cod_estudiante_fk = cod_estudiante_fk;
+
+
+	public void setCed_estudiante_fk(String ced_estudiante_fk) {
+		this.ced_estudiante_fk = ced_estudiante_fk;
 	}
+
+
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
