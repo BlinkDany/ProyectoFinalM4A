@@ -32,7 +32,7 @@ public class Asignatura implements Serializable{
 	private Long codigoCategorias;
 	
 	@Column(nullable = false)
-	private Long ced_profesor_fk;
+	private String ced_profesor_fk;
 	
 	@Column(nullable = false)
 	private Long codigoMatriculas;
@@ -80,11 +80,13 @@ public class Asignatura implements Serializable{
 	}
 
 	
-	public Long getCed_profesor_fk() {
+	
+
+	public String getCed_profesor_fk() {
 		return ced_profesor_fk;
 	}
 
-	public void setCed_profesor_fk(Long ced_profesor_fk) {
+	public void setCed_profesor_fk(String ced_profesor_fk) {
 		this.ced_profesor_fk = ced_profesor_fk;
 	}
 
