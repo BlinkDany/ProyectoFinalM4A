@@ -2,6 +2,8 @@ package com.examen.demo.models.Entity;
 
 import java.io.Serializable;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -40,8 +42,10 @@ public class Asignatura implements Serializable{
 	@Column(nullable = false)
 	private Long codigoHorarios;
 	
-	@Column(nullable = false)
-	private Long codigoTareas;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigoAsignatura")
+	private List<Tareas> listTareas;
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "codigoAsignatura")
@@ -106,13 +110,23 @@ public class Asignatura implements Serializable{
 		this.codigoHorarios = codigoHorarios;
 	}
 
-	public Long getCodigoTareas() {
-		return codigoTareas;
+	public List<Tareas> getListTareas() {
+		return listTareas;
 	}
 
-	public void setCodigoTareas(Long codigoTareas) {
-		this.codigoTareas = codigoTareas;
+	public void setListTareas(List<Tareas> listTareas) {
+		this.listTareas = listTareas;
 	}
+
+	public List<EstudianteAsignatura> getListAsignaturas() {
+		return listAsignaturas;
+	}
+
+	public void setListAsignaturas(List<EstudianteAsignatura> listAsignaturas) {
+		this.listAsignaturas = listAsignaturas;
+	}
+
+
 
 
 

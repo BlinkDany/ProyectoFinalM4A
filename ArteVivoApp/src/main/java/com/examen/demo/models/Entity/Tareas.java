@@ -30,6 +30,9 @@ public class Tareas implements Serializable{
 	private String observaciones;
 	private String notas;
 	
+	@Column(nullable = false)
+	private Long codigoAsignatura;
+	
 	@Column(name = "fecharegistro")
 	@Temporal(TemporalType.DATE)
 	private Date fecharegistro;
