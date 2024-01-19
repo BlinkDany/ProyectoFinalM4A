@@ -31,17 +31,25 @@ public class Tareas implements Serializable{
 	private String notas;
 	
 	@Column(nullable = false)
-	private Long codigoAsignatura;
+	private Long cod_matricula_pk;
 	
 	@Column(name = "fecharegistro")
 	@Temporal(TemporalType.DATE)
 	private Date fecharegistro;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "codigoTareas")
-	private List<Asignatura> asignatura;
 	
-    @PrePersist
+	
+    public Long getCod_matricula_pk() {
+		return cod_matricula_pk;
+	}
+
+
+	public void setCod_matricula_pk(Long cod_matricula_pk) {
+		this.cod_matricula_pk = cod_matricula_pk;
+	}
+
+
+	@PrePersist
 	public void prePersist() {
     	fecharegistro = new Date();
 	}

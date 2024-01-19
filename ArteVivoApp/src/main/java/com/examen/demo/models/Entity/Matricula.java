@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,15 +35,43 @@ public class Matricula implements Serializable {
 	@Column(nullable = false)
 	private String ced_estudiante_fk;
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "codigoMatriculas")
-	private List<Asignatura> listAsignaturas;
+	@Column(nullable = false)
+	private Long codigoAsignatura;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "cod_matricula_pk")
+	private List<Tareas> listTareas;
+	
 	
 	public Long getCod_matricula_pk() {
 		return cod_matricula_pk;
 	}
 	
 	
+
+	public Long getCodigoAsignatura() {
+		return codigoAsignatura;
+	}
+
+
+
+	public void setCodigoAsignatura(Long codigoAsignatura) {
+		this.codigoAsignatura = codigoAsignatura;
+	}
+
+
+
+	public List<Tareas> getListTareas() {
+		return listTareas;
+	}
+
+
+
+	public void setListTareas(List<Tareas> listTareas) {
+		this.listTareas = listTareas;
+	}
+
+
 
 	public void setCod_matricula_pk(Long cod_matricula_pk) {
 		this.cod_matricula_pk = cod_matricula_pk;
@@ -94,15 +123,7 @@ public class Matricula implements Serializable {
 
 
 
-	public List<Asignatura> getListAsignaturas() {
-		return listAsignaturas;
-	}
-
-
-
-	public void setListAsignaturas(List<Asignatura> listAsignaturas) {
-		this.listAsignaturas = listAsignaturas;
-	}
+	
 	
 	
 	
