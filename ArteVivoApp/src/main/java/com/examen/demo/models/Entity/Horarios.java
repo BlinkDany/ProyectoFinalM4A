@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.List;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -29,10 +30,11 @@ public class Horarios implements Serializable {
 	private String hora_Inicio;
 	private String hora_fin;
 	private String dia;
+	
+	
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "codigoHorarios")
-	private List<Asignatura> listaAsignaturas;
+	@Column(nullable = false)
+	private Long codigoAsignatura;
 	
 	
 	public String getDia() {
@@ -51,13 +53,13 @@ public class Horarios implements Serializable {
 		this.codigoHorarios = codigoHorarios;
 	}
 
-	
-	public List<Asignatura> getListaAsignaturas() {
-		return listaAsignaturas;
+
+	public Long getCodigoAsignatura() {
+		return codigoAsignatura;
 	}
 
-	public void setListaAsignaturas(List<Asignatura> listaAsignaturas) {
-		this.listaAsignaturas = listaAsignaturas;
+	public void setCodigoAsignatura(Long codigoAsignatura) {
+		this.codigoAsignatura = codigoAsignatura;
 	}
 
 	public String getHora_Inicio() {

@@ -42,8 +42,9 @@ public class Asignatura implements Serializable{
 	@Column(nullable = false)
 	private Long codigoHorarios;
 	
-	
-	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "codigoAsignatura")
+	private List<Horarios> listHorarios;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigoAsignatura")
@@ -55,6 +56,22 @@ public class Asignatura implements Serializable{
 	
 	public Long getCodigoAsignatura() {
 		return codigoAsignatura;
+	}
+
+	public List<Horarios> getListHorarios() {
+		return listHorarios;
+	}
+
+	public void setListHorarios(List<Horarios> listHorarios) {
+		this.listHorarios = listHorarios;
+	}
+
+	public List<Matricula> getListMatriculas() {
+		return listMatriculas;
+	}
+
+	public void setListMatriculas(List<Matricula> listMatriculas) {
+		this.listMatriculas = listMatriculas;
 	}
 
 	public void setCodigoAsignatura(Long codigoAsignatura) {
