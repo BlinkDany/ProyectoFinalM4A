@@ -31,9 +31,11 @@ public class Matricula implements Serializable {
 	private Date fecha_ini;
 	private Date feche_fin;
 	private int cupo;
+	private double calificacion;
 	
 	@Column(nullable = false)
 	private String ced_estudiante_fk;
+	
 	
 	@Column(nullable = false)
 	private Long codigoAsignatura;
@@ -43,6 +45,18 @@ public class Matricula implements Serializable {
 	private List<Tareas> listTareas;
 	
 	
+	public double getCalificacion() {
+		return calificacion;
+	}
+
+
+
+	public void setCalificacion(double calificacion) {
+		this.calificacion = calificacion;
+	}
+
+
+
 	public Long getCod_matricula_pk() {
 		return cod_matricula_pk;
 	}
