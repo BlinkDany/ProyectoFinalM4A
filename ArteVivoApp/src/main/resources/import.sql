@@ -1,0 +1,1 @@
+INSERT INTO `persona` (`fecha_nac`, `apellidos`, `cedula`, `correo`, `direccion`, `foto`, `nombres`, `telf`) VALUES ('1993-04-24', 'Idrovo', '0104455647', 'juancidrovo@gmail.com', 'av loja', 'x resolver foto', 'Juan', '0984359326');
