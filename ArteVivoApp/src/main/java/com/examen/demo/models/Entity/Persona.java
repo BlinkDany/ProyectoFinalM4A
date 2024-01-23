@@ -102,7 +102,7 @@ public class Persona {
 	public String getContrasena() {
 		return contrasena;
 	}    
-	///////////////gfsgjdsf;ligjdsfgjds;fjgspd
+
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
