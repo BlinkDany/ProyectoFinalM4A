@@ -13,5 +13,6 @@ public interface IMatriculaService {
 	public Matricula findById(Long cod_matricula_pk);
 	
 	public void delete(Long cod_matricula_pk);
+	List<Matricula> getMatriculasByEstudiante(String ced_estudiante_fk);
 
 }

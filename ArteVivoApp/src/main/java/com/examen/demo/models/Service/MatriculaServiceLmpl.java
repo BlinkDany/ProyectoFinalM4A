@@ -42,5 +42,10 @@ public class MatriculaServiceLmpl implements IMatriculaService{
 		// TODO Auto-generated method stub
 		matriculaDao.deleteById(cod_matricula_pk);
 	}
+	  @Override
+	    public List<Matricula> getMatriculasByEstudiante(String ced_estudiante_fk) {
+	        // Implementa la lógica para obtener matrículas por el código del estudiante
+	        return matriculaDao.findByCedEstudianteFk(ced_estudiante_fk);
+	    }
 
 }
