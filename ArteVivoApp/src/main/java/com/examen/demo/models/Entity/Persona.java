@@ -28,6 +28,7 @@ public class Persona {
 	private String direccion;
 	private String telf;
 	private String foto;
+	private String contrasena;
 	
 	@Column(name="fecha_nac")
 	@Temporal(TemporalType.DATE)
@@ -96,6 +97,15 @@ public class Persona {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}    
+	///////////////gfsgjdsf;ligjdsfgjds;fjgspd
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 
