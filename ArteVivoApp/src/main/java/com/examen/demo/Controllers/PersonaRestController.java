@@ -84,6 +84,7 @@ public class PersonaRestController {
 		personaActual.setNombres(persona.getNombres());
 		personaActual.setTelf(persona.getTelf());
 		personaActual.setFoto(persona.getFoto());
+		personaActual.setContrasena(persona.getContrasena());
 		
 		return personaService.save(personaActual);
 	}
