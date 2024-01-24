@@ -40,12 +40,12 @@ public class Asignatura implements Serializable {
 	@JoinColumn(name = "codigoAsignatura")
 	private List<Matricula> listMatriculas;
 
-	public Long getCodigoAsignatura() {
+	public Long getIdAsignatura() {
 		return idAsignatura;
 	}
 
-	public void setCodigoAsignatura(Long codigoAsignatura) {
-		this.idAsignatura = codigoAsignatura;
+	public void setIdAsignatura(Long idAsignatura) {
+		this.idAsignatura = idAsignatura;
 	}
 
 	public String getNombre() {
@@ -79,6 +79,7 @@ public class Asignatura implements Serializable {
 	public void setCed_profesor_fk(String ced_profesor_fk) {
 		this.ced_profesor_fk = ced_profesor_fk;
 	}
-
+	
+	
 	
 }
