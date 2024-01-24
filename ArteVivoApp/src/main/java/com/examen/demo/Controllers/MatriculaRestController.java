@@ -55,6 +55,11 @@ public class MatriculaRestController {
 
 		matriActual.setFecha_ini(matricula.getFecha_ini());
 		matriActual.setFeche_fin(matricula.getFeche_fin());
+		matriActual.setAsistencias(matricula.getAsistencias());
+		matriActual.setCalificacion(matricula.getCalificacion());
+		matriActual.setCupo(matricula.getCupo());
+		matriActual.setEstado(matricula.getEstado());
+		
 
 		return matriculaService.save(matriActual);
 	}

@@ -33,9 +33,9 @@ public class AsignaturaRestController {
 		return asignaturaService.findAll();
 		
 	}
-	    @GetMapping("/asignatura/{id}")
-	    public Asignatura show(@PathVariable Long id) {
-	    	return asignaturaService.findById(id);
+	    @GetMapping("/asignatura/{idAsignatura}")
+	    public Asignatura show(@PathVariable Long idAsignatura) {
+	    	return asignaturaService.findById(idAsignatura);
 	    }
 	    
 	    @PostMapping("/asignatura")
@@ -44,18 +44,18 @@ public class AsignaturaRestController {
 	    	return asignaturaService.save(asignatura);
 	    }
 	    
-	    @PutMapping("/asignatura/{id}")
+	    @PutMapping("/asignatura/{idAsignatura}")
 	    @ResponseStatus(HttpStatus.CREATED)
-	    public Asignatura update(@RequestBody Asignatura asignatura, @PathVariable Long id) {
-	    	Asignatura asignaturaActual = asignaturaService.findById(id);
+	    public Asignatura update(@RequestBody Asignatura asignatura, @PathVariable Long idAsignatura) {
+	    	Asignatura asignaturaActual = asignaturaService.findById(idAsignatura);
 	    	asignaturaActual.setNombre(asignatura.getNombre());
 	    	asignaturaActual.setDescripcion(asignatura.getDescripcion());
 	    	return asignaturaService.save(asignaturaActual);
 	    }
 	    
-	    @DeleteMapping("/asignatura/{id}")
+	    @DeleteMapping("/asignatura/{idAsignatura}")
 	    @ResponseStatus(HttpStatus.NO_CONTENT)
-	    public void delete(@PathVariable Long id) {
-	    	asignaturaService.delete(id);
+	    public void delete(@PathVariable Long idAsignatura) {
+	    	asignaturaService.delete(idAsignatura);
 	    }
 }

@@ -15,33 +15,22 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="estudiantes")
-public class Estudiante extends Persona{
-	
-	
-	
+@Table(name = "estudiantes")
+public class Estudiante extends Persona {
+
 	@Column(nullable = false)
 	private String cedula_estudiante_fk;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "ced_estudiante_fk")
-	private List<EstudianteAsignatura> listaEstudianteAsignList;
-	
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ced_estudiante_fk")
 	private List<Matricula> listaMatriculaAsignList;
-
-	
 
 	public String getCedula_estudiante_fk() {
 		return cedula_estudiante_fk;
 	}
 
-
-
 	public void setCedula_estudiante_fk(String cedula_estudiante_fk) {
 		this.cedula_estudiante_fk = cedula_estudiante_fk;
 	}
-
 
 }

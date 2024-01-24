@@ -9,7 +9,7 @@ public interface IAsignaturaService {
 	
 	public Asignatura save(Asignatura asignatura);
 	
-	public Asignatura findById(Long id);
+	public Asignatura findById(Long idAsignatura);
 	
-	public void delete(Long id);
+	public void delete(Long idAsignatura);
 }

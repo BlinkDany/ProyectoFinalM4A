@@ -16,14 +16,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="matriculas")
+@Table(name = "matriculas")
 public class Matricula implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long cod_matricula_pk;
@@ -32,60 +32,38 @@ public class Matricula implements Serializable {
 	private Date feche_fin;
 	private int cupo;
 	private double calificacion;
-	
+	private int asistencias;
+	private String estado;
+
 	@Column(nullable = false)
 	private String ced_estudiante_fk;
-	
-	
+
 	@Column(nullable = false)
 	private Long codigoAsignatura;
-	
+
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "cod_matricula_pk")
 	private List<Tareas> listTareas;
-	
-	
+
 	public double getCalificacion() {
 		return calificacion;
 	}
-
-
 
 	public void setCalificacion(double calificacion) {
 		this.calificacion = calificacion;
 	}
 
-
-
 	public Long getCod_matricula_pk() {
 		return cod_matricula_pk;
 	}
-	
-	
 
 	public Long getCodigoAsignatura() {
 		return codigoAsignatura;
 	}
 
-
-
 	public void setCodigoAsignatura(Long codigoAsignatura) {
 		this.codigoAsignatura = codigoAsignatura;
 	}
-
-
-
-	public List<Tareas> getListTareas() {
-		return listTareas;
-	}
-
-
-
-	public void setListTareas(List<Tareas> listTareas) {
-		this.listTareas = listTareas;
-	}
-
-
 
 	public void setCod_matricula_pk(Long cod_matricula_pk) {
 		this.cod_matricula_pk = cod_matricula_pk;
@@ -111,34 +89,36 @@ public class Matricula implements Serializable {
 		return ced_estudiante_fk;
 	}
 
-
-
 	public void setCed_estudiante_fk(String ced_estudiante_fk) {
 		this.ced_estudiante_fk = ced_estudiante_fk;
 	}
-
-
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
-
-
 	public int getCupo() {
 		return cupo;
 	}
-
-
 
 	public void setCupo(int cupo) {
 		this.cupo = cupo;
 	}
 
+	public int getAsistencias() {
+		return asistencias;
+	}
 
+	public void setAsistencias(int asistencias) {
+		this.asistencias = asistencias;
+	}
 
-	
-	
-	
-	
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
 }

@@ -31,16 +31,16 @@ public class AsignaturaServiceImpl implements IAsignaturaService{
 
 	@Override
 	@Transactional(readOnly = true)
-	public Asignatura findById(Long id) {
+	public Asignatura findById(Long idAsignatura) {
 		// TODO Auto-generated method stub
-		return asignaturaDao.findById(id).orElse(null);
+		return asignaturaDao.findById(idAsignatura).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public void delete(Long id) {
+	public void delete(Long idAsignatura) {
 		// TODO Auto-generated method stub
-		asignaturaDao.deleteById(id);;
+		asignaturaDao.deleteById(idAsignatura);;
 	}
 
 }
