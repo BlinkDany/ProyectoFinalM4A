@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.examen.demo.models.Entity.Persona;
 
-public interface IPersonaService extends UserDetailsService{
+public interface IPersonaService{
 
 	public List<Persona> findAll();
 	
@@ -14,5 +14,4 @@ public interface IPersonaService extends UserDetailsService{
 	
 	public void delete(String cedula);
 	
-	public UserDetails loadUserByUsername(String username);
 }
