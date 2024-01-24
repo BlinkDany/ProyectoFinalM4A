@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -57,5 +58,14 @@ public class AsignaturaRestController {
 	    @ResponseStatus(HttpStatus.NO_CONTENT)
 	    public void delete(@PathVariable Long idAsignatura) {
 	    	asignaturaService.delete(idAsignatura);
+	    }
+	    @GetMapping("/matriculas/asignatura")
+	    public ResponseEntity<List<Asignatura>> getAsignaturas() {
+	        try {
+	            List<Asignatura> asignaturas = asignaturaService.findAll();
+	            return new ResponseEntity<>(asignaturas, HttpStatus.OK);
+	        } catch (Exception e) {
+	            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	        }
 	    }
 }
