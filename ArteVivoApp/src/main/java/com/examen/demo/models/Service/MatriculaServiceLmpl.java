@@ -48,4 +48,10 @@ public class MatriculaServiceLmpl implements IMatriculaService{
 	        return matriculaDao.findByCedEstudianteFk(ced_estudiante_fk);
 	    }
 
+	  @Override
+	    public List<Matricula> getMatriculasByAsignatura(Long idAsignatura) {
+	        // Implementa la lógica para obtener matrículas por el ID de la asignatura
+	        return matriculaDao.findByAsignaturaId(idAsignatura);
+	    }
+
 }
