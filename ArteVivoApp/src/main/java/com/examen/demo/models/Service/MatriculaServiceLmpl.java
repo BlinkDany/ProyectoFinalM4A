@@ -1,6 +1,7 @@
 package com.examen.demo.models.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,12 @@ public class MatriculaServiceLmpl implements IMatriculaService{
 	    public List<Matricula> getMatriculasByAsignatura(Long idAsignatura) {
 	        // Implementa la lógica para obtener matrículas por el ID de la asignatura
 	        return matriculaDao.findByAsignaturaId(idAsignatura);
+	    }
+
+	  @Override
+	    @Transactional(readOnly = true)
+	    public List<String> getHorarioPorEstudiante(String ced_estudiante_fk) {
+	        return matriculaDao.getHorarioPorEstudiante(ced_estudiante_fk);
 	    }
 
 }

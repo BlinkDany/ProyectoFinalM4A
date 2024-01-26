@@ -34,6 +34,8 @@ public class Matricula implements Serializable {
 	private double calificacion;
 	private int asistencias;
 	private String estado;
+	 @Column(name = "horario")
+	    private String horario;
 
 	@Column(nullable = false)
 	private String ced_estudiante_fk;
