@@ -1,6 +1,7 @@
 package com.examen.demo.models.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,11 +11,11 @@ import com.examen.demo.models.Dao.IPersonaDao;
 import com.examen.demo.models.Entity.Persona;
 
 @Service
-public class PersonaServiceImpl implements IPersonaService{
+public class PersonaServiceImpl implements IPersonaService {
 
 	@Autowired
 	IPersonaDao personaDao;
-	
+
 	@Override
 	@Transactional(readOnly = true)
 	public List<Persona> findAll() {
@@ -40,4 +41,20 @@ public class PersonaServiceImpl implements IPersonaService{
 		personaDao.deleteById(cedula);
 	}
 
+	@Override
+	@Transactional(readOnly = true)
+	public Persona authenticate(String correo, String contrasena) {
+		Optional<Persona> personaOptional = personaDao.findByCorreo(correo);
+
+		if (personaOptional.isPresent()) {
+			Persona persona = personaOptional.get();
+
+			// Verificar si las contraseñas coinciden
+			if (persona.getContrasena().equals(contrasena)) {
+				return persona;
+			}
+		}
+
+		return null; // Autenticación fallida
+	}
 }

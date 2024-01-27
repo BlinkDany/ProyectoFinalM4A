@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Map;
 
 import org.antlr.v4.runtime.tree.xpath.XPathLexerErrorListener;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,5 +115,25 @@ public class PersonaRestController {
 			Files.write(rutaCompleta, imagen.getBytes());
 			return nombreUnico;
 		}
+		
+		// AUTENTICACIÓN
+		@PostMapping("/login")
+		public ResponseEntity<?> login(@RequestBody Map<String, String> credentials) {
+		    String correo = credentials.get("correo");
+		    String contrasena = credentials.get("contrasena");
+
+		    System.out.println("Intento de inicio de sesión para el correo: " + correo+ contrasena);
+
+		    Persona persona = personaService.authenticate(correo, contrasena);
+
+		    if (persona != null) {
+		        System.out.println("Inicio de sesión exitoso para el correo: " + correo);
+		        return ResponseEntity.ok(persona);
+		    } else {
+		        System.out.println("Falló el inicio de sesión para el correo: " + correo + contrasena);
+		        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Autenticación fallida");
+		    }
+		}
+
 	
 }

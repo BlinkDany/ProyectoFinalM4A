@@ -14,4 +14,6 @@ public interface IPersonaService{
 	
 	public void delete(String cedula);
 	
+	public Persona authenticate(String correo, String contrasena);
+	
 }

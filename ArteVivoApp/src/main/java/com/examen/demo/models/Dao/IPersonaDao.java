@@ -9,5 +9,7 @@ import com.examen.demo.models.Entity.Persona;
 public interface IPersonaDao extends CrudRepository<Persona, String>{
 	
 	Optional<Persona> findByCedula(String cedula);
+	
+	Optional<Persona> findByCorreo(String correo);
 
 }
