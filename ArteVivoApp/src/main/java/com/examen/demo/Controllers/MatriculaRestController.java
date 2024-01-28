@@ -42,6 +42,7 @@ public class MatriculaRestController {
 	@PostMapping("/matriculas")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Matricula create(@RequestBody Matricula matricula) {
+
 		return matriculaService.save(matricula);
 	}
 
@@ -49,6 +50,7 @@ public class MatriculaRestController {
 	@PutMapping("/matriculas/{cod_matricula_pk}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Matricula update(@RequestBody Matricula matricula, @PathVariable Long cod_matricula_pk) {
+
 		Matricula matriActual = matriculaService.findById(cod_matricula_pk);
 
 		matriActual.setFecha_ini(matricula.getFecha_ini());
@@ -57,6 +59,7 @@ public class MatriculaRestController {
 		matriActual.setCalificacion(matricula.getCalificacion());
 		matriActual.setCupo(matricula.getCupo());
 		matriActual.setEstado(matricula.getEstado());
+		
 
 		return matriculaService.save(matriActual);
 	}
@@ -70,9 +73,14 @@ public class MatriculaRestController {
 	@GetMapping("/matriculas/estudiante/{ced_estudiante_fk}")
 	public ResponseEntity<List<Matricula>> getMatriculasByEstudiante(@PathVariable String ced_estudiante_fk) {
 		try {
+			// Implementa tu lógica para obtener matrículas por el código del estudiante
 			List<Matricula> matriculas = matriculaService.getMatriculasByEstudiante(ced_estudiante_fk);
+
+			// Puedes agregar lógica adicional aquí si es necesario
+
 			return new ResponseEntity<>(matriculas, HttpStatus.OK);
 		} catch (Exception e) {
+			// Maneja las excepciones según tus necesidades
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -86,4 +94,10 @@ public class MatriculaRestController {
 	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	}
+	
+	  @GetMapping("/matriculas/horario/{ced_estudiante_fk}")
+	    public ResponseEntity<List<String>> getHorarioPorEstudiante(@PathVariable String ced_estudiante_fk) {
+	        List<String> horario = matriculaService.getHorarioPorEstudiante(ced_estudiante_fk);
+	        return ResponseEntity.ok().body(horario);
+	    }
 }
