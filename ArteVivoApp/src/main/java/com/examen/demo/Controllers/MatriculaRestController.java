@@ -1,6 +1,7 @@
 package com.examen.demo.Controllers;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examen.demo.models.Entity.Matricula;
 import com.examen.demo.models.Service.IMatriculaService;
 
+
+
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
@@ -25,6 +29,7 @@ public class MatriculaRestController {
 
 	@Autowired
 	private IMatriculaService matriculaService;
+	
 
 	// lista
 	@GetMapping("/matriculas")

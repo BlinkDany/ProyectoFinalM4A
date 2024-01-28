@@ -46,6 +46,16 @@ public class Matricula implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "cod_matricula_pk")
 	private List<Tareas> listTareas;
+	
+	
+
+	public List<Tareas> getListTareas() {
+		return listTareas;
+	}
+
+	public void setListTareas(List<Tareas> listTareas) {
+		this.listTareas = listTareas;
+	}
 
 	public double getCalificacion() {
 		return calificacion;
