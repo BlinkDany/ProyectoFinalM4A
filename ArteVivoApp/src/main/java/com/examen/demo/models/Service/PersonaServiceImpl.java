@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.examen.demo.models.Dao.IPersonaDao;
+import com.examen.demo.models.Entity.Estudiante;
 import com.examen.demo.models.Entity.Persona;
+import com.examen.demo.models.Entity.Profesor;
 
 @Service
 public class PersonaServiceImpl implements IPersonaService {
@@ -57,4 +59,21 @@ public class PersonaServiceImpl implements IPersonaService {
 
 		return null; // Autenticación fallida
 	}
+
+	@Override
+    @Transactional(readOnly = true)
+    public String getTipoUsuario(String cedula) {
+        Optional<Persona> personaOptional = personaDao.findById(cedula);
+
+        if (personaOptional.isPresent()) {
+            Persona persona = personaOptional.get();
+            if (persona instanceof Estudiante) {
+                return "estudiante";
+            } else if (persona instanceof Profesor) {
+                return "profesor";
+            }
+        }
+
+        return "otro";
+    }
 }

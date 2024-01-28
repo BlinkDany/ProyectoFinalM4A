@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
@@ -124,6 +125,17 @@ public class PersonaRestController {
 		        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Autenticación fallida");
 		    }
 		}
+		
+		// NUEVO MÉTODO PARA OBTENER TIPO DE USUARIO
+	    @GetMapping("/persona/tipo-usuario")
+	    public ResponseEntity<String> getTipoUsuario(@RequestParam String cedula) {
+	        String tipoUsuario = personaService.getTipoUsuario(cedula);
 
+	        if (tipoUsuario != null) {
+	            return ResponseEntity.ok(tipoUsuario);
+	        } else {
+	            return ResponseEntity.notFound().build();
+	        }
+	    }
 	
 }

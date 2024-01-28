@@ -16,4 +16,6 @@ public interface IPersonaService{
 	
 	public Persona authenticate(String correo, String contrasena);
 	
+	String getTipoUsuario(String cedula);
+	
 }
