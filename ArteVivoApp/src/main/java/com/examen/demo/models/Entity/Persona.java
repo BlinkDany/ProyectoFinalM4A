@@ -24,6 +24,8 @@ public class Persona {
 	private String cedula;
 	private String nombres;
 	private String apellidos;
+	
+	@Column(name = "correo", unique = true)
 	private String correo;
 	private String direccion;
 	private String telf;
@@ -106,9 +108,6 @@ public class Persona {
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
-	}
-
-
-
+}
 
 }

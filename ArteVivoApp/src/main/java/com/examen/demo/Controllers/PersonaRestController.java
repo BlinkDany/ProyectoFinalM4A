@@ -53,17 +53,7 @@ public class PersonaRestController {
 	//CREAR
 	@PostMapping("/persona")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Persona create(@RequestPart("persona") Persona persona,
-	                      @RequestPart(value = "imagen", required = false) MultipartFile imagen) {
-	    if (imagen != null && !imagen.isEmpty()) {
-	        try {
-	            String foto = almacenarImagen(imagen);
-	            persona.setFoto(foto);
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	    }
-
+	public Persona create(@RequestBody Persona persona) {
 	    return personaService.save(persona);
 	}
 	
