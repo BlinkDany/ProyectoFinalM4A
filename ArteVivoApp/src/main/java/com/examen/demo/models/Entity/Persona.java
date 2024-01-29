@@ -29,6 +29,7 @@ public class Persona {
 	
 	@Column(name = "correo", unique = true)
 	private String correo;
+	
 	private String direccion;
 	private String telf;
 	private String foto;

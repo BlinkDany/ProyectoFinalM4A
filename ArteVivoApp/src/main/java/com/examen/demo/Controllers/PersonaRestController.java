@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.examen.demo.models.Entity.Estudiante;
 import com.examen.demo.models.Entity.Persona;
 import com.examen.demo.models.Service.IPersonaService;
 
@@ -122,6 +123,34 @@ public class PersonaRestController {
 		        return ResponseEntity.ok(persona);
 		    } else {
 		        System.out.println("Falló el inicio de sesión para el correo: " + correo + contrasena);
+		        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Autenticación fallida");
+		    }
+		}
+		
+		///////////LOGIN SOLO ESTUDIANTE
+		@PostMapping("/loginEstudiante")
+		public ResponseEntity<?> loginEstudiante(@RequestBody Map<String, String> credentials) {
+		    String correo = credentials.get("correo");
+		    String contrasena = credentials.get("contrasena");
+
+		    System.out.println("Intento de inicio de sesión para el correo: " + correo);
+
+		    Persona persona = personaService.authenticate(correo, contrasena);
+
+		    if (persona != null) {
+		        System.out.println("Inicio de sesión exitoso para el correo: " + correo);
+
+		        // Asegúrate de que la persona autenticada sea un estudiante
+		        if (persona instanceof Estudiante) {
+		            // Solo permitir el acceso si es un estudiante
+		            return ResponseEntity.ok(persona);
+		        } else {
+		            // Si la persona autenticada no es un estudiante, denegar el acceso
+		            System.out.println("Inicio de sesión denegado. Solo se permite el acceso a estudiantes.");
+		            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Inicio de sesión denegado. Solo se permite el acceso a estudiantes.");
+		        }
+		    } else {
+		        System.out.println("Falló el inicio de sesión para el correo: " + correo);
 		        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Autenticación fallida");
 		    }
 		}
