@@ -1,5 +1,6 @@
 package com.examen.demo.models.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,4 +77,22 @@ public class PersonaServiceImpl implements IPersonaService {
 
         return "otro";
     }
+
+	@Override
+	public List<Persona> findByNombre(String nombres) {
+		
+		return personaDao.findByNombresContainingIgnoreCase(nombres);		
+	}
+
+	@Override
+	public List<Persona> findByApellido(String apellidos) {
+		// TODO Auto-generated method stub
+		return personaDao.findByApellidosContainingIgnoreCase(apellidos);
+	}
+
+	@Override
+	public List<Persona> findByCorreo(String correo) {
+		// TODO Auto-generated method stub
+		return Collections.singletonList(personaDao.findByCorreo(correo).orElse(null));
+	}
 }

@@ -137,5 +137,19 @@ public class PersonaRestController {
 	            return ResponseEntity.notFound().build();
 	        }
 	    }
-	
+	///////////Buscadores x nombre apellido y mail///////////////////////
+	    @GetMapping("/persona/buscar-por-nombre")
+	    public List<Persona> buscarPorNombre(@RequestParam String nombres) {
+	        return personaService.findByNombre(nombres);
+	    }
+
+	    @GetMapping("/persona/buscar-por-apellido")
+	    public List<Persona> buscarPorApellido(@RequestParam String apellidos) {
+	        return personaService.findByApellido(apellidos);
+	    }
+
+	    @GetMapping("/persona/buscar-por-correo")
+	    public List<Persona> buscarPorCorreo(@RequestParam String correo) {
+	        return personaService.findByCorreo(correo);
+	    }	    
 }

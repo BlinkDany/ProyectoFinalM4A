@@ -17,7 +17,6 @@ public class Profesor extends Persona{
 
 	
 	@Column(nullable = false)
-	
 	private String cedula_profesor_fk;
 	
 	private String Titulo;
@@ -41,6 +40,5 @@ public class Profesor extends Persona{
 	public void setCedula_profesor_fk(String cedula_profesor_fk) {
 		this.cedula_profesor_fk = cedula_profesor_fk;
 	}
-
 	
 }
