@@ -53,6 +53,9 @@ public class EstudianteRestController {
 		Estudiante estuActual = estudianteService.findById(cedula);
 
 		estuActual.setCedula_estudiante_fk(estudiante.getCedula_estudiante_fk());
+		estuActual.setNombres(estudiante.getNombres());
+		estuActual.setApellidos(estudiante.getApellidos());
+		estuActual.setDireccion(estudiante.getDireccion());
 
 		return estudianteService.save(estuActual);
 	}

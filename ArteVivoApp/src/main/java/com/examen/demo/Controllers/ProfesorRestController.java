@@ -49,6 +49,9 @@ public class ProfesorRestController {
 		Profesor profeActual = profesorService.findById(cedula);
 
 		profeActual.setTitulo(profesor.getTitulo());
+		profeActual.setApellidos(profesor.getApellidos());
+		profeActual.setNombres(profesor.getNombres());
+		profeActual.setDireccion(profesor.getDireccion());
 
 		return profesorService.save(profeActual);
 	}
