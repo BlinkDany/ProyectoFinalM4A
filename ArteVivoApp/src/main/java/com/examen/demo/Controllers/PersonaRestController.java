@@ -93,7 +93,7 @@ public class PersonaRestController {
 	
 	// foto
 
-		@GetMapping("/proveedores/imagen/{imagen}")
+		@GetMapping("/persona/imagen/{imagen}")
 		public ResponseEntity<Resource> getImagen(@PathVariable String imagen) {
 			Path imagenPath = Paths.get(CARPETA_IMAGENES_ESPECIFICA, imagen);
 			Resource imagenResource = new FileSystemResource(imagenPath);
