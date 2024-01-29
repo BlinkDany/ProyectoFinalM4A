@@ -3,6 +3,8 @@ package com.examen.demo.models.Entity;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,6 +34,7 @@ public class Persona {
 	private String foto;
 	private String contrasena;
 	
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Column(name="fecha_nac")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
