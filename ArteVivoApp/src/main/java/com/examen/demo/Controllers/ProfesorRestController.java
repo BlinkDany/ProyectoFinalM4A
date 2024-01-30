@@ -52,6 +52,11 @@ public class ProfesorRestController {
 		profeActual.setApellidos(profesor.getApellidos());
 		profeActual.setNombres(profesor.getNombres());
 		profeActual.setDireccion(profesor.getDireccion());
+		profeActual.setCorreo(profesor.getCorreo());
+		profeActual.setContrasena(profesor.getContrasena());
+		profeActual.setTelf(profesor.getTelf());
+		profeActual.setFecha_nac(profesor.getFecha_nac());
+		profeActual.setFoto(profesor.getFoto());
 
 		return profesorService.save(profeActual);
 	}

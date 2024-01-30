@@ -50,14 +50,18 @@ public class EstudianteRestController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Estudiante update(@RequestBody Estudiante estudiante, @PathVariable String cedula) {
 
-		Estudiante estuActual = estudianteService.findById(cedula);
+	    Estudiante estuActual = estudianteService.findById(cedula);
 
-		estuActual.setCedula_estudiante_fk(estudiante.getCedula_estudiante_fk());
-		estuActual.setNombres(estudiante.getNombres());
-		estuActual.setApellidos(estudiante.getApellidos());
-		estuActual.setDireccion(estudiante.getDireccion());
+	    estuActual.setNombres(estudiante.getNombres());
+	    estuActual.setApellidos(estudiante.getApellidos());
+	    estuActual.setCorreo(estudiante.getCorreo());
+	    estuActual.setDireccion(estudiante.getDireccion());
+	    estuActual.setFecha_nac(estudiante.getFecha_nac());
+	    estuActual.setTelf(estudiante.getTelf());
+	    estuActual.setFoto(estudiante.getFoto());
+	    estuActual.setContrasena(estudiante.getContrasena());
 
-		return estudianteService.save(estuActual);
+	    return estudianteService.save(estuActual);
 	}
 
 	// eliminar
