@@ -62,26 +62,26 @@ public class PersonaServiceImpl implements IPersonaService {
 	}
 
 	@Override
-    @Transactional(readOnly = true)
-    public String getTipoUsuario(String cedula) {
-        Optional<Persona> personaOptional = personaDao.findById(cedula);
+	@Transactional(readOnly = true)
+	public String getTipoUsuario(String cedula) {
+		Optional<Persona> personaOptional = personaDao.findById(cedula);
 
-        if (personaOptional.isPresent()) {
-            Persona persona = personaOptional.get();
-            if (persona instanceof Estudiante) {
-                return "estudiante";
-            } else if (persona instanceof Profesor) {
-                return "profesor";
-            }
-        }
+		if (personaOptional.isPresent()) {
+			Persona persona = personaOptional.get();
+			if (persona instanceof Estudiante) {
+				return "estudiante";
+			} else if (persona instanceof Profesor) {
+				return "profesor";
+			}
+		}
 
-        return "otro";
-    }
+		return "otro";
+	}
 
 	@Override
 	public List<Persona> findByNombre(String nombres) {
-		
-		return personaDao.findByNombresContainingIgnoreCase(nombres);		
+
+		return personaDao.findByNombresContainingIgnoreCase(nombres);
 	}
 
 	@Override

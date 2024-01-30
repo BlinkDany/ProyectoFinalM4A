@@ -26,21 +26,21 @@ public class Persona {
 	private String cedula;
 	private String nombres;
 	private String apellidos;
-	
+
 	@Column(name = "correo", unique = true)
 	private String correo;
-	
+
 	private String direccion;
 	private String telf;
 	private String foto;
 	private String contrasena;
-	
+	private String tipoUsuario;
+
 	@JsonFormat(pattern = "yyyy-MM-dd")
-	@Column(name="fecha_nac")
+	@Column(name = "fecha_nac")
 	@Temporal(TemporalType.DATE)
 	private Date fecha_nac;
 
-	
 	public String getCedula() {
 		return cedula;
 	}
@@ -107,11 +107,20 @@ public class Persona {
 
 	public String getContrasena() {
 		return contrasena;
-	}    
-
+	}
 
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
-}
+	}
+
+	public String getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(String tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
+	
+	
 
 }
