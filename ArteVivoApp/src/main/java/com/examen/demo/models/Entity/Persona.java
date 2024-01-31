@@ -32,6 +32,7 @@ public class Persona {
 
 	private String direccion;
 	private String telf;
+	@Column(name = "foto", length = 100000)
 	private String foto;
 	private String contrasena;
 	private String tipoUsuario;
