@@ -31,17 +31,23 @@ public class TareasServiceImpl implements ITareasService{
 
 	@Override
 	@Transactional(readOnly = true)
-	public Tareas findById(Long id) {
+	public Tareas findById(Long codigoTareas) {
 		// TODO Auto-generated method stub
-		return TareaDao.findById(id).orElse(null);
+		return TareaDao.findById(codigoTareas).orElse(null);
 	}
 
 	@Override
 	@Transactional
-	public void delete(Long id) {
+	public void delete(Long codigoTareas) {
 		// TODO Auto-generated method stub
-		TareaDao.deleteById(id);
+		TareaDao.deleteById(codigoTareas);
 		
+	}
+
+	@Override
+	public List<Tareas> findByAsignaturaId(Long idAsignatura) {
+		// TODO Auto-generated method stub
+		return TareaDao.findByIdAsignatura(idAsignatura);
 	}
 
 }

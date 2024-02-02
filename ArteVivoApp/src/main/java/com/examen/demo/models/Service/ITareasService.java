@@ -9,8 +9,10 @@ public interface ITareasService {
 
 	public Tareas save(Tareas tareas);
 	
-	public Tareas findById(Long id);
+	public Tareas findById(Long codigoTareas);
 
-	public void delete (Long id);
+	public void delete (Long codigoTareas);
+	
+	public List<Tareas> findByAsignaturaId(Long idAsignatura);
 
 }

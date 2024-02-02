@@ -43,6 +43,10 @@ public class Asignatura implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "codigoAsignatura")
 	private List<Horarios> lisHorarios;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "idAsignatura")
+	private List<Tareas> listTareas;
 
 	public Long getIdAsignatura() {
 		return idAsignatura;

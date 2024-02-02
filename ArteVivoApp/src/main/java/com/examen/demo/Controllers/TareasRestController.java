@@ -32,9 +32,9 @@ public class TareasRestController {
 
 	}
 	
-    @GetMapping("/tareas/{id}")
-    public Tareas show(@PathVariable Long id) {
-    	return tareasService.findById(id);
+    @GetMapping("/tareas/{codigoTareas}")
+    public Tareas show(@PathVariable Long codigoTareas) {
+    	return tareasService.findById(codigoTareas);
     }
     
     @PostMapping("/tareas")
@@ -43,19 +43,24 @@ public class TareasRestController {
     	return tareasService.save(notas);
     }
     
-    @PutMapping("/tareas/{id}")
+    @PutMapping("/tareas/{codigoTareas}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Tareas update(@RequestBody Tareas tareas, @PathVariable Long id) {
-    	Tareas notaactual = tareasService.findById(id);
+    public Tareas update(@RequestBody Tareas tareas, @PathVariable Long codigoTareas) {
+    	Tareas notaactual = tareasService.findById(codigoTareas);
     	notaactual.setObservaciones(tareas.getObservaciones());
     	notaactual.setFecharegistro(tareas.getFecharegistro());
     	return tareasService.save(notaactual);
     }
     
-    @DeleteMapping("/tareas/{id}")
+    @DeleteMapping("/tareas/{codigoTareas}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-    	tareasService.delete(id);
+    public void delete(@PathVariable Long codigoTareas) {
+    	tareasService.delete(codigoTareas);
+    }
+    
+    @GetMapping("/tareas/asignatura/{idAsignatura}")
+    public List<Tareas> getTareasPorAsignatura(@PathVariable Long idAsignatura) {
+        return tareasService.findByAsignaturaId(idAsignatura);
     }
     
     
