@@ -19,4 +19,7 @@ public interface IMatriculaDao extends CrudRepository<Matricula, Long> {
 
     @Query("SELECT m.horario FROM Matricula m WHERE m.ced_estudiante_fk = :ced_estudiante_fk")
     List<String> getHorarioPorEstudiante(@Param("ced_estudiante_fk") String ced_estudiante_fk);
+    
+    @Query("SELECT m FROM Matricula m WHERE m.asignatura.nombre = :nombreAsignatura")
+    List<Matricula> findByAsignaturaNombre(@Param("nombreAsignatura") String nombreAsignatura);
 }

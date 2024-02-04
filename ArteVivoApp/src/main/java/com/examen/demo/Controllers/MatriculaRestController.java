@@ -1,5 +1,6 @@
 package com.examen.demo.Controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.examen.demo.models.Entity.Asignatura;
 import com.examen.demo.models.Entity.Matricula;
 import com.examen.demo.models.Service.IMatriculaService;
 
@@ -93,7 +95,7 @@ public class MatriculaRestController {
 	@GetMapping("/matriculas/asignatura/{idAsignatura}")
 	public ResponseEntity<List<Matricula>> getMatriculasByAsignatura(@PathVariable Long idAsignatura) {
 	    try {
-	        List<Matricula> matriculas = matriculaService.getMatriculasByAsignatura(idAsignatura);
+	        List<Matricula> matriculas = matriculaService.getNomMatriculasByAsignatura(idAsignatura);
 	        return new ResponseEntity<>(matriculas, HttpStatus.OK);
 	    } catch (Exception e) {
 	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -105,4 +107,7 @@ public class MatriculaRestController {
 	        List<String> horario = matriculaService.getHorarioPorEstudiante(ced_estudiante_fk);
 	        return ResponseEntity.ok().body(horario);
 	    }
+	  
+	  
+	  
 }

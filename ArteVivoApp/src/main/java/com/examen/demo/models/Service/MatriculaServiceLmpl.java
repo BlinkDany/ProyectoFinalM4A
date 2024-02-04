@@ -60,5 +60,18 @@ public class MatriculaServiceLmpl implements IMatriculaService{
 	    public List<String> getHorarioPorEstudiante(String ced_estudiante_fk) {
 	        return matriculaDao.getHorarioPorEstudiante(ced_estudiante_fk);
 	    }
+	  
+	  @Override
+	  @Transactional(readOnly = true)
+	  public List<Matricula> getNomMatriculasByAsignatura(Long idAsignatura) {
+	      List<Matricula> matriculas = matriculaDao.findByAsignaturaId(idAsignatura);
+
+	      // Cargar información de asignatura para cada matrícula
+	      for (Matricula matricula : matriculas) {
+	          matricula.getAsignatura(); // Esto carga la información de la asignatura para cada matrícula
+	      }
+
+	      return matriculas;
+	  }
 
 }

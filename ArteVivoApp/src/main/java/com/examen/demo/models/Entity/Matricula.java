@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -19,9 +20,6 @@ import jakarta.persistence.Table;
 @Table(name = "matriculas")
 public class Matricula implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -42,6 +40,11 @@ public class Matricula implements Serializable {
 
 	@Column(nullable = false)
 	private Long codigoAsignatura;
+	
+	@ManyToOne
+    @JoinColumn(name = "codigoAsignatura", referencedColumnName = "idAsignatura", insertable = false, updatable = false)
+    private Asignatura asignatura;
+	
 
 	public double getCalificacion() {
 		return calificacion;
@@ -118,5 +121,23 @@ public class Matricula implements Serializable {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+
+	public String getHorario() {
+		return horario;
+	}
+
+	public void setHorario(String horario) {
+		this.horario = horario;
+	}
+
+	public Asignatura getAsignatura() {
+		return asignatura;
+	}
+
+	public void setAsignatura(Asignatura asignatura) {
+		this.asignatura = asignatura;
+	}
+	
+	
 
 }

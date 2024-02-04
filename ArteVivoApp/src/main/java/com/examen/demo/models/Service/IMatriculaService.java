@@ -19,4 +19,6 @@ public interface IMatriculaService {
 	List<Matricula> getMatriculasByAsignatura(Long idAsignatura);
 
 	List<String> getHorarioPorEstudiante(String ced_estudiante_fk);
+	
+	 List<Matricula> getNomMatriculasByAsignatura(Long idAsignatura);
 }
