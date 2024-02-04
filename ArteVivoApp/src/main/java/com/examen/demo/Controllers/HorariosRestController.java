@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,6 +65,17 @@ public class HorariosRestController {
 		
 		horariosService.eliminar(codigoHorarios);
 	}
+	
+	@GetMapping("/horarios/estudiante/{ced_estudiante_fk}")
+    public ResponseEntity<List<Horarios>> getHorarioPorEstudiante(@PathVariable String ced_estudiante_fk) {
+		try {
+			List<Horarios> horarios = horariosService.getHorariosPorEstudiante(ced_estudiante_fk);
+	        return new ResponseEntity<>(horarios, HttpStatus.OK);
+		}catch (Exception e) {
+	        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+        
+    }
 	
 	
 	

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.examen.demo.models.Dao.IHorariosDao;
 import com.examen.demo.models.Entity.Horarios;
@@ -36,6 +37,13 @@ public class HorariosServiceImpl implements IHorariosService{
 	public void eliminar(Long codigoHorarios) {
 		// TODO Auto-generated method stub
 		horariosDao.deleteById(codigoHorarios);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Horarios> getHorariosPorEstudiante(String ced_estudiante_fk) {
+		// TODO Auto-generated method stub
+		return horariosDao.getHorariosPorEstudiante(ced_estudiante_fk);
 	}
 
 }
