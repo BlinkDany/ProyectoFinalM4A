@@ -76,6 +76,11 @@ public class HorariosRestController {
 	    }
         
     }
+	@GetMapping("/horarios/estudiante2/{ced_estudiante_fk}")
+    public ResponseEntity<List<String>> getHorarioPorEstudiante2(@PathVariable String ced_estudiante_fk) {
+        List<String> horario = horariosService.getHorariosPorEstudiante2(ced_estudiante_fk);
+        return ResponseEntity.ok().body(horario);
+    }
 	
 	
 	

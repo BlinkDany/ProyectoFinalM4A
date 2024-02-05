@@ -15,4 +15,6 @@ public interface IHorariosService {
 	public void eliminar(Long codigoHorarios);
 	
 	List<Horarios> getHorariosPorEstudiante(String ced_estudiante_fk);
+	
+	List<String> getHorariosPorEstudiante2(String ced_estudiante_fk);
 }

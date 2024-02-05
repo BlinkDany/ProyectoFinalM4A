@@ -45,5 +45,11 @@ public class HorariosServiceImpl implements IHorariosService{
 		// TODO Auto-generated method stub
 		return horariosDao.getHorariosPorEstudiante(ced_estudiante_fk);
 	}
+	@Override
+	@Transactional(readOnly = true)
+	public List<String> getHorariosPorEstudiante2(String ced_estudiante_fk) {
+		// TODO Auto-generated method stub
+		return horariosDao.getHorariosPorEstudiante2(ced_estudiante_fk);
+	}
 
 }
