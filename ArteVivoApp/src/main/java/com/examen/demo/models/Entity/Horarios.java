@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -36,6 +37,9 @@ public class Horarios implements Serializable {
 	@Column(nullable = false)
 	private Long codigoAsignatura;
 	
+	@ManyToOne
+    @JoinColumn(name = "codigoAsignatura", referencedColumnName = "idAsignatura", insertable = false, updatable = false)
+    private Asignatura asignatura;
 	
 	public String getDia() {
 		return dia;
